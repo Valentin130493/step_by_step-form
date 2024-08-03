@@ -39,8 +39,11 @@ export const CustomForm: FC<Props> = ({ name, navigateTo, children }) => {
       .validateFields({ validateOnly: true })
       .then(() => setSubmittable(true))
       .catch(() => setSubmittable(false));
-    form.setFieldsValue(userFormData);
   }, [form, formValues]);
+
+  useEffect(() => {
+    form.setFieldsValue(userFormData);
+  }, [form, userFormData]);
 
   const { isTablet, isMobile } = useBreakpoints();
 

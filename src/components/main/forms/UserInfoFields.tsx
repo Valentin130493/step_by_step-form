@@ -12,24 +12,44 @@ export const UserInfoFields: FC = () => {
         rules={[
           { required: true, message: "This field is required" },
           {
-            pattern: /^[0-9]{4} [0-9]{3} [0-9]{3}$/,
-            message: "Format of number needs to be 0XXX XXX XXX",
+            pattern: /^[0-9]{4}-[0-9]{3}-[0-9]{3}$/,
+            message: "Format of number needs to be 0XXX-XXX-XXX",
           },
         ]}
       >
-        <Input type={"tel"} placeholder={"0XXX XXX XXX"} />
+        <Input type={"tel"} placeholder={"0XXX-XXX-XXX"} />
       </Form.Item>
       <Form.Item
         label="First name"
         name={"firstName"}
-        rules={[{ required: true, message: "This field is required" }]}
+        rules={[
+          {
+            required: true,
+            message: "This field is required",
+          },
+          {
+            pattern: /^[a-zA-Zа-яА-ЯёЁ-]+$/,
+            message:
+              "First name cannot contain numbers or special characters (except hyphen)",
+          },
+        ]}
       >
         <Input autoComplete="off" placeholder={"John"} />
       </Form.Item>
       <Form.Item
         label="Last Name"
         name={"lastName"}
-        rules={[{ required: true, message: "This field is required" }]}
+        rules={[
+          {
+            required: true,
+            message: "This field is required",
+          },
+          {
+            pattern: /^[a-zA-Zа-яА-ЯёЁ-]+$/,
+            message:
+              "Last name cannot contain numbers or special characters (except hyphen)",
+          },
+        ]}
       >
         <Input autoComplete="off" placeholder={"Smith"} />
       </Form.Item>
