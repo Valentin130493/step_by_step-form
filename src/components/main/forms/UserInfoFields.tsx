@@ -15,6 +15,9 @@ export const UserInfoFields: FC = () => {
             pattern: /^[0-9]{4}-[0-9]{3}-[0-9]{3}$/,
             message: "Format of number needs to be 0XXX-XXX-XXX",
           },
+          {
+            max: 12,
+          },
         ]}
       >
         <Input type={"tel"} placeholder={"0XXX-XXX-XXX"} />
